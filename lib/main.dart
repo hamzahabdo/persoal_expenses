@@ -28,12 +28,13 @@ class MyApp extends StatelessWidget {
               )),
           appBarTheme: AppBarTheme(
               textTheme: ThemeData.light().textTheme.copyWith(
-                      headline1: TextStyle(
+                  headline1: TextStyle(
                     fontFamily: 'OpenSans',
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                     color: Theme.of(context).primaryColor,
-                  )))),
+                  ),
+                  button: TextStyle(color: Colors.white)))),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
@@ -77,11 +78,12 @@ class _MyHomePageState extends State<MyHomePage> {
     ).toList();
   }
 
-  void _addNewTransaction(String txTitle, double txAmount) {
+  void _addNewTransaction(
+      String txTitle, double txAmount, DateTime selectedDate) {
     final newTx = Transaction(
       title: txTitle,
       amount: txAmount,
-      date: DateTime.now(),
+      date: selectedDate,
       id: DateTime.now().toString(),
     );
 
